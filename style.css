@@ -1,0 +1,51 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Helvetica Neue", Arial;
+	font-size: 13px;
+}
+
+#controls {
+	float: left;
+}
+
+#layers {
+	float: left;
+}
+
+#layers li {
+	width: 100px;
+	height: 100px;
+	background: #ddd;
+	list-style-type: none;
+	padding: 10px;
+}
+
+#layers li input {
+	width: 100%;
+	height: 100%;
+}
+
+aside {
+	width: 600px;
+	float: right;
+}
+aside img {
+	position: absolute;
+}
+
+aside ul {
+	position: relative;
+	top: 343px;
+	left: 50px;
+}
+input {
+	outline: 0;
+	border: 0;
+	font-size: 12px;
+	background: transparent;
+}
+

@@ -1,0 +1,34 @@
+<html ng-app="antetypeApp">
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+	<script type="text/javascript" src="antetype.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-controller="LayerController">
+	<div id="controls">
+		<button ng-click="addLayer('rectangle')">Add Rectangle</button>
+		<button ng-click="addLayer('rectangle')">Add Text</button>
+	</div>
+	
+	<div id="layers">
+
+	<ul>
+		<li ng-repeat="layer in layers"><input ng-model="layer.name.custom" value=""></li>
+	</ul>
+		
+	</div>
+
+
+	<aside>
+	<img src="inspector.png">
+		<ul>
+			<li ng-repeat="layer in layers">
+				<span contenteditable ng-model="layer.name.custom"></span> - <em>{{layer.type}}</em>
+			</li>
+		</ul>
+	</aside>
+
+
+</body>
+</html>
