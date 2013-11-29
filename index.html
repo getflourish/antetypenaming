@@ -7,14 +7,15 @@
 </head>
 <body ng-controller="LayerController">
 	<div id="controls">
-		<button ng-click="addLayer('rectangle')">Add Rectangle</button>
-		<button ng-click="addLayer('rectangle')">Add Text</button>
+		<button ng-click="addLayer('Rectangle')">Add Rectangle</button>
+		<button ng-click="addLayer('Text')">Add Text</button>
+		<button ng-click="addLayer('ListItem')">Add ListItem Widget</button>
 	</div>
 	
 	<div id="layers">
 
 	<ul>
-		<li ng-repeat="layer in layers"><input ng-model="layer.name.custom" value=""></li>
+		<li ng-class="{selected: $index==selectedIndex}" ng-click="selectCell($index)" ng-repeat="layer in layers"><input ng-model="layer.name.custom" value=""></li>
 	</ul>
 		
 	</div>
@@ -24,7 +25,8 @@
 	<img src="inspector.png">
 		<ul>
 			<li ng-repeat="layer in layers">
-				<span contenteditable ng-model="layer.name.custom"></span> - <em>{{layer.type}}</em>
+				<div ng-class="{selectedFill: $index==selectedIndex}" ng-click="selectCell($index)" ng-show="layer.name.custom == ''" ><span contenteditable ng-model="layer.name.placeholder"></span> - <em>{{layer.type}}</em></div>
+				<div ng-class="{selectedFill: $index==selectedIndex}" ng-click="selectCell($index)" ng-show="layer.name.custom != ''" ><span contenteditable ng-model="layer.name.custom"></span> - <em>{{layer.type}}</em></div>
 			</li>
 		</ul>
 	</aside>

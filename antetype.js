@@ -1,5 +1,6 @@
 function LayerController($scope) {
 	$scope.layers = [];
+  $scope.selectedIndex;
 
 	$scope.addLayer = function (type) {
 		$scope.layers.push({
@@ -8,6 +9,11 @@ function LayerController($scope) {
 			"nameChanged":false,
 		});
 	};
+
+  $scope.selectCell = function (index) {
+    console.log(index);
+    $scope.selectedIndex = index;
+  }
 }
 
 angular.module('antetypeApp', ['myDirectives']);
