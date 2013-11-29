@@ -2,6 +2,7 @@
 <head>
 	<title></title>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+	<script type="text/javascript" src="keymaster.min.js"></script>
 	<script type="text/javascript" src="antetype.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -9,13 +10,15 @@
 	<div id="controls">
 		<button ng-click="addLayer('Rectangle')">Add Rectangle</button>
 		<button ng-click="addLayer('Text')">Add Text</button>
-		<button ng-click="addLayer('ListItem')">Add ListItem Widget</button>
+		<button ng-click="addLayer('Button')">Add Button Widget</button>
 	</div>
 	
 	<div id="layers">
 
 	<ul>
-		<li ng-class="{selected: $index==selectedIndex}" ng-click="selectCell($index)" ng-repeat="layer in layers"><input ng-model="layer.name.custom" value=""></li>
+		<li ng-if="layer.type=='Rectangle'" ng-class="{selected: $index==selectedIndex}" ng-click="selectCell($index)" ng-repeat="layer in layers" class="rectangle-cell" ><input ng-model="layer.name.custom" value=""></li>
+		<li ng-if="layer.type=='Text'" ng-class="{selected: $index==selectedIndex}" ng-click="selectCell($index)" ng-repeat="layer in layers" class="text-cell" ><input ng-model="layer.name.custom" value=""></li>
+		<li ng-if="layer.type=='Button'" ng-class="{selected: $index==selectedIndex}" ng-click="selectCell($index)" ng-repeat="layer in layers" class="widget-cell"><input ng-model="layer.name.custom" value="Foo"><span>Label</span></li>
 	</ul>
 		
 	</div>

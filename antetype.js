@@ -3,17 +3,41 @@ function LayerController($scope) {
   $scope.selectedIndex;
 
 	$scope.addLayer = function (type) {
-		$scope.layers.push({
-			"name":{"placeholder":"Untitled " + type, "custom":""},
-			"type":type,
-			"nameChanged":false,
-		});
+    if (type == "Button") {
+      $scope.layers.push({
+      "name":{"placeholder":"Untitled", "custom":"Label"},
+      "type":type,
+      "nameChanged":false,
+    });
+    } else {
+      $scope.layers.push({
+      "name":{"placeholder":"Untitled", "custom":""},
+      "type":type,
+      "nameChanged":false,
+    })}
+
+      $scope.selectedIndex = $scope.layers.length-1;
 	};
+
+  $scope.removeLayer = function (index) {
+    $scope.layers.splice(index, 1);
+    $scope.selectedIndex = index;
+  }
 
   $scope.selectCell = function (index) {
     console.log(index);
     $scope.selectedIndex = index;
   }
+
+  key('alt + down', function(){ 
+    $scope.addLayer("Rectangle");
+    $scope.$apply();
+  });
+
+  key('backspace', function(){ 
+    $scope.removeLayer($scope.selectedIndex);
+    $scope.$apply();
+  });
 }
 
 angular.module('antetypeApp', ['myDirectives']);
