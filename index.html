@@ -13,6 +13,16 @@
 		<button ng-click="addLayer('Button')">Add Button Widget</button>
 	</div>
 	
+		<aside>
+	<img src="inspector.png">
+		<ul>
+			<li ng-repeat="layer in layers">
+				<div ng-class="{selectedFill: $index==selectedIndex}" ng-click="selectCell($index)" ng-show="layer.name.custom == ''" ><span contenteditable ng-model="layer.name.placeholder"></span> - <em>{{layer.type}}</em></div>
+				<div ng-class="{selectedFill: $index==selectedIndex}" ng-click="selectCell($index)" ng-show="layer.name.custom != ''" ><span contenteditable ng-model="layer.name.custom"></span> - <em>{{layer.type}}</em></div>
+			</li>
+		</ul>
+	</aside>
+	
 	<div id="layers">
 
 	<ul>
@@ -24,15 +34,7 @@
 	</div>
 
 
-	<aside>
-	<img src="inspector.png">
-		<ul>
-			<li ng-repeat="layer in layers">
-				<div ng-class="{selectedFill: $index==selectedIndex}" ng-click="selectCell($index)" ng-show="layer.name.custom == ''" ><span contenteditable ng-model="layer.name.placeholder"></span> - <em>{{layer.type}}</em></div>
-				<div ng-class="{selectedFill: $index==selectedIndex}" ng-click="selectCell($index)" ng-show="layer.name.custom != ''" ><span contenteditable ng-model="layer.name.custom"></span> - <em>{{layer.type}}</em></div>
-			</li>
-		</ul>
-	</aside>
+
 
 
 </body>
