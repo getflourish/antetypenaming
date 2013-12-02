@@ -22,12 +22,14 @@ body {
 	height: 600px;
 	background: #fff;
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+	padding: 20px;
 }
 
 #layers li {
 	list-style-type: none;
 	padding: 10px;
-	margin-top: 20px;
+	margin: 10px;
+	float: left;
 }
 
 #layers li input {
@@ -84,8 +86,16 @@ input {
 	background: #ddd;
 }
 .text-cell {
-	min-width: 100px;
+	width: 100px;
 	height: 20px;
+}
+.text-icon:before {
+	content: '';
+	background: url("icons/text.png") no-repeat;
+	width: 13px;
+	height: 13px;
+	padding-left: 17px;
+
 }
 .widget-cell {
 	width: 100px;

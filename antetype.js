@@ -1,12 +1,13 @@
 function LayerController($scope) {
 	$scope.layers = [];
   $scope.selectedIndex;
+  $scope.widgetName = "Button";
 
 	$scope.addLayer = function (type) {
     if (type == "Button") {
       $scope.layers.push({
       "name":{"placeholder":"Untitled", "custom":"Label"},
-      "type":type,
+      "type":$scope.widgetName,
       "nameChanged":false,
     });
     } else {
